@@ -16,7 +16,7 @@ let audioDuration = ""; // duration of audio
 let isLooped = false;
 
 const currTime = document.querySelector('#current-time')
-const myURL = new URL(window.location.href)
+let myURL = new URL(window.location.href)
 let audioUrlSearch = "";
 let fileToLoad = "";
 
@@ -178,6 +178,7 @@ function siteCreation(dataPath) {
             stringURL = myURL.toString()
             if (stringURL.includes("?")) {
                 audioUrlSearch = stringURL.split("?")[1]
+
             } else {
 
             }
@@ -251,9 +252,9 @@ function siteCreation(dataPath) {
 
                             fileToLoad = currentPlay
 
-                            document.querySelector('#npTitle').innerHTML = `${currentTitle}`
-                            document.querySelector('#nowPlaying').innerHTML = `${tagButt}`
-                            document.querySelector('#npSummary').innerHTML = `${currentSummary}`
+                            document.querySelector('#npTitle').innerHTML = `${currentTitle}`;
+                            document.querySelector('#nowPlaying').innerHTML = `${tagButt}`;
+                            document.querySelector('#npSummary').innerHTML = `${currentSummary}`;
                             joever = true;
                         } else {
                             joever = false;
