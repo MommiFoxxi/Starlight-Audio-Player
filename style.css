@@ -1,0 +1,632 @@
+/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
+   HTML content. To learn how to do something, just try searching Google for questions like
+   "how to change link color." */
+:root{
+    /* NOTE:  the colors labeled A-H below can be used to bulk set colors without needing to set the color of each element.
+    If you'd like to use the detailed color selection, swap the names ":root" and ".notroot" before the brackets */
+    --COLOR-A: #160170; 
+    --COLOR-B: #fff6a1;
+    --COLOR-C: #c74900;
+    --COLOR-D: #627aff;
+    --COLOR-E: #f39a15; 
+    --COLOR-F: #c2cbff;
+    --COLOR-G: #fff1cb;
+    --COLOR-H: #152042d3;
+
+    /* background images */
+    --page-background-image: url("https://textures.neocities.org/textures/pattern-and-prints/nightskystar.gif");
+    --header-background-image: url("img/starrynight-rectangle.jpg");
+
+    /* font settings */
+    --title-text-family: "Limelight", sans-serif;
+    --body-text-family: 'Lexend';
+    --button-text-family: 'Lexend', ;
+
+    /* --- EASIER ROOT SETTINGS --- */
+
+    --main-text-color: var(--COLOR-A);
+    --secondary-text-color: var(--COLOR-B);
+    --title-text-color: var(--COLOR-B);
+    --text-glow-color:  var(--COLOR-C);
+
+    --main-button-color: var(--COLOR-A);
+    --secondary-button-color: var(--COLOR-A);
+    --main-button-border: var(--COLOR-D);
+    --secondary-button-border: var(--COLOR-B);
+    --tag-button-color: var(--COLOR-E);
+    --tag-button-border: var(--COLOR-C);
+    --main-button-shadow: var(--COLOR-E);
+
+    --volume-background-color: var(--COLOR-D);
+    --volume-border-color: var(--COLOR-A);
+    --volume-cursor-color: var(--COLOR-E); 
+    --volume-cursor-border-color: var(--COLOR-C);
+
+    --main-container-color: var(--COLOR-H);
+    --secondary-container-color:var(--COLOR-B);
+    --footer-container-color: var(--COLOR-H);
+    --container-border-color: var(--COLOR-B);
+
+    --player-background-color:var(--COLOR-B);
+    --player-cursor-color: var(--COLOR-E);
+    --player-cursor: '⭐';
+    --player-border-color: var(--COLOR-E);
+
+    --waveform-background-color: var(--COLOR-A);
+    --waveform-color: var(--COLOR-D);
+    --waveform-after-color: var(--COLOR-C);
+
+    --header-color:   var(--COLOR-A);
+    --row-color-one:  var(--COLOR-F);
+    --row-color-two: var(--COLOR-G);
+    --table-border-color:  var(--COLOR-E);
+
+    --search-background-color:  var(--COLOR-D);
+    --search-border-color:  var(--COLOR-F);
+}
+
+.notroot {
+    /* --- DETAILED COLOR/STYLE SELECTION --- */
+
+     /* Text colors */
+    --main-text-color: #11004e;
+    --secondary-text-color: #fff596;
+    --title-text-color: #fff596;
+    --text-glow-color: #cf5108;
+
+    /* Text fonts */
+    --title-text-family: "Limelight", sans-serif;
+    --body-text-family: 'Lexend';
+
+    /* Button settings */
+    --main-button-color: #11004e;
+    --secondary-button-color: #11004e;
+    --button-text-family: 'Lexend', ;
+    --main-button-border:  #f39a15;
+    --secondary-button-border: #fff596;
+
+    /* Tag button settings */
+    --tag-button-color: #f39a15;
+    --tag-button-border:#cf5108;
+
+    /* Volume slider settings */
+    --volume-background-color: #5c74ff;
+    --volume-border-color: #11004e;
+    --volume-cursor-color: #f39a15;
+    --volume-cursor-border-color: #cf5108;
+
+    /* Container colors */
+    --main-container-color: #6d57bea6;
+    --secondary-container-color: #fff596;
+    --footer-container-color: #6d57bea6;
+    --container-border-color: #fff596;
+
+    /* Background images */
+    --page-background-image: url("https://textures.neocities.org/textures/pattern-and-prints/nightskystar.gif");
+    --header-background-image: url("img/starrynight-rectangle.jpg");
+
+    /* Audio player settings */
+    --player-background-color: #fff596;
+    --player-cursor-color: #f39a15;
+    --player-cursor: '⭐';
+    --player-border-color: #f39a15;
+
+
+    /* Waveform settings */
+    --waveform-background-color: #11004e;
+    /* varaible used within script.js*/
+    --waveform-color: #5c74ff;
+    /* varaible used within script.js*/
+    --waveform-after-color: #cf5108;
+
+    /* Table settings */
+    --header-color:  #11004e;
+    --row-color-one: #c2cbff;
+    --row-color-two: #fff1cb;
+    --table-border-color: #f39a15;
+
+    /* Search bar settings */
+    --search-background-color:  #5c74ff;
+    --search-border-color: #c2cbff;
+}
+
+/* --- Colors of tag types --- */
+#tagButton.Audience {
+    background-color: #21e742;
+}
+
+#tagButton.Rating {
+    background-color: #9df7fa;
+}
+
+#tagButton.Extreme {
+    background-color: #ff5656;
+}
+
+#tagButton.Collab {
+    background-color: #e76eff;
+}
+
+#selectedTags.Audience {
+    background-color: #21e742;
+}
+
+#selectedTags.Rating {
+    background-color: #9df7fa;
+}
+
+#selectedTags.Extreme {
+    background-color: #ff5656;
+}
+
+#selectedTags.Collab {
+    background-color: #e76eff;
+}
+
+
+/* --- General element stylings --- */
+
+body {
+    font-family: var(--body-text-family);
+    color: var(--main-text-color);
+    background-image: var(--page-background-image);
+    background-repeat: repeat;
+    background-size: 10%;
+    margin: 2%;
+
+}
+
+footer {
+    text-align: center;
+    color: var(--secondary-text-color);
+    font-size: 1rem;
+    margin-bottom: 20px;
+    font-family: var(--body-text-family);
+    align-items: center;
+    text-shadow: var(--text-glow-color) 0 0 10px;
+    background-color: var(--footer-container-color);
+    margin: 2%;
+    border-radius: 50px;
+    border: 5px inset var(--container-border-color);
+}
+
+h1 {
+    text-align: center;
+    color: var(--main-text-color);
+    font-size: 4rem;
+    margin-bottom: 20px;
+    font-family: var(--title-text-family);
+    align-items: center;
+    text-shadow: var(--text-glow-color) 0 0 10px;
+    background-image: var(--header-background-image);
+    margin: 2%;
+    padding: 10px;
+    color: var(--title-text-color);
+    border-radius: 50px;
+    border: 5px inset var(--container-border-color);
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-family: var(--title-text-family);
+    align-items: center;
+    text-shadow: var(--text-glow-color) 0 0 10px;
+    margin: 2%;
+    padding: 10px;
+    color: var(--title-text-color);
+}
+
+h3 {
+    font-size: 100%;
+    color: var(--main-text-color);
+    font-family: 'Lexend';
+    font-weight: 800;
+}
+h4 {
+    font-size: 100%;
+    color: var(--main-text-color);
+    font-family: 'Lexend';
+    font-weight: 500;
+}
+/* --- Container stylings --- */
+
+.container {
+    max-width: 90%;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: var(--main-container-color);
+    border: 5px inset var(--container-border-color);
+}
+
+.buttons-container {
+    margin: auto;
+    text-align: center;
+}
+
+/* --- Styling for secondary elements --- */
+
+.secondaryText {
+    color: var(--secondary-text-color);
+    font-size: 1rem;
+    font-family: var(--body-text-family);
+    text-shadow: var(--text-glow-color) 0 0 10px;
+    text-align: center;
+}
+
+.secondaryButton {
+    background-color: var(--secondary-button-color);
+    border: 2px solid;
+    color: var(--secondary-text-color);
+    font-style: bold;
+    font-family: var(--button-text-family);
+    font-size: 1rem;
+    border-radius: 50px;
+    padding: 10px;
+}
+
+/* --- Spinning disk functionality --- */
+
+.disk {
+    -webkit-mask-image: url("img/circle-mask.png");
+    -webkit-mask-size: 100%;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-name: spin;
+    animation-timing-function: linear;
+    animation-play-state: paused;
+    background: var(--secondary-container-color);
+    padding: 10px;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg)
+    }
+
+    to {
+        transform: rotate(360deg)
+    }
+}
+
+#cdCase {
+    align-items: center;
+    display: flex;
+    margin-right: -100px;
+    position: relative;
+    z-index: -1;
+    scale: 120%;
+    filter: drop-shadow(1px 1px 5px var(--text-glow-color));
+
+}
+
+/* --- Now Playing Information --- */
+#npcdContainer {
+    display: flex;
+    position: relative;
+    z-index: 1;
+    justify-content: flex-end;
+}
+
+#npplContainer {
+    width: 80%;
+    padding: 10px;
+    background-color: var(--secondary-container-color);
+    margin: 0px;
+    border-radius: 25px;
+    position: relative;
+    z-index: 1;
+    width: 85%;
+    margin-bottom: 0%;
+    filter: drop-shadow(1px 1px 5px var(--text-glow-color));
+}
+
+#npTitle {
+    font: family;
+    color: var(--main-text-color)
+}
+
+#npContainer {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    color: var(--main-text-color);
+    font: var(--body-text-family);
+}
+
+#nowPlaying {
+    padding-left: 40px;
+    padding-bottom: 20px;
+}
+
+/* --- Timecode and volume stylings --- */
+
+#timecode-container {
+    padding-left: 5px;
+    padding-right: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+}
+
+#function-container {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20px;
+}
+
+.volume-group {
+    color: var(--main-text-color);
+    font-style: bold;
+    font-family: "Silkscreen", sans-serif;
+    font-size: 1rem;
+    padding: 10px;
+}
+
+.timecode {
+    color: var(--main-text-color);
+}
+
+.volume-slider {
+    appearance: none;
+    grid-area: volume-slider;
+    align-self: center;
+    background: var(--volume-background-color);
+    border-radius: 20px;
+    width: 100%;
+    height: 4px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: var(--volume-border-color);
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--volume-cursor-color);
+    cursor: pointer;
+    border-style: solid;
+    border-width: 3px;
+    border-color: var(--volume-cursor-border-color);
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: var(--volume-cursor-color);
+    cursor: pointer;
+    border-style: solid;
+    border-width: 3px;
+    border-color: var(--volume-cursor-border-color);
+}
+
+.volume-group {
+    grid-area: volume-group;
+    display: grid;
+    gap: 0;
+    grid-template-areas: "volume-button volume-slider";
+    grid-template-rows: repeat(1, auto);
+    grid-template-columns: repeat(2, auto);
+    column-gap: 20px;
+    row-gap: 0;
+    justify-items: stretch;
+    align-items: start;
+    justify-content: space-evenly;
+    align-content: space-evenly;
+    align-self: center;
+    justify-self: end;
+}
+
+.volume-button {
+    grid-area: volume-button;
+    align-self: center;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+}
+
+/* --- Audio player styling --- */
+
+#playerContainer {
+    display: inline-block;
+    width: 100%;
+    background-color: var(--player-background-color);
+    padding-top: 20px;
+    border-radius: 10px;
+}
+
+#playbutton {
+    background-color: var(--secondary-button-color);
+    border: 3px solid var(--secondary-button-border);;
+    color: var(--secondary-text-color);
+    font-style: bold;
+    font-family: var(--button-text-family);
+    font-size: 1rem;
+    border-radius: 50px;
+    padding: 10px;
+    filter: drop-shadow(3px 3px 3px var(--main-button-shadow)) 
+
+}
+
+#loopButton,
+#mainPlay {
+    background-color: var(--main-button-color);
+    border: 3px solid var(--main-button-border);;
+    color: var(--secondary-text-color);
+    font-style: bold;
+    font-family: var(--button-text-family);
+    font-size: 1rem;
+    border-radius: 50px;
+    padding: 10px;
+    filter: drop-shadow(3px 3px 3px var(--main-button-shadow)) 
+}
+
+#playDiv {
+    display: inline-block;
+}
+
+#playCircle {
+    width: 100%;
+}
+
+#audioplayer {
+    max-width: 100%;
+    border: 3px solid var(--player-border-color);
+}
+
+#audioplayer ::part(wrapper) {
+    background-color: var(--waveform-background-color);
+    max-width: 100%;
+}
+
+#audioplayer ::part(cursor) {
+    height: 100px;
+    top: 23px;
+    border-radius: 4px;
+    border: 1px solid #fff;
+    background-color: var(--player-cursor-color);
+}
+
+#audioplayer ::part(cursor):after {
+    content: var(--player-cursor);
+    font-size: 1.5em;
+    position: absolute;
+    left: 0;
+    top: -28px;
+    transform: translateX(-45%);
+
+}
+
+#audioplayer ::part(progress) {
+    color: var(--waveform-color);
+}
+
+/* --- Tag stylings (selected and buttons) --- */
+
+#selectedTags {
+    background-color: var(--tag-button-color);
+    color: var(--main-text-color);
+    font-style: bold;
+    font-family: 'Lexend';
+    font-size: .8rem;
+    border-radius: 10px;
+    padding: 7px;
+    border-color: var(--tag-button-border);
+    border-width: 3px;
+    line-height: 10px;
+    border-style: dashed;
+    margin: 1px;
+}
+
+#tagButton {
+    background-color: var(--tag-button-color);
+    color: var(--main-text-color);
+    font-style: bold;
+    font-family: 'Lexend';
+    font-size: .8rem;
+    border-radius: 10px;
+    padding: 7px;
+    border-color: var(--tag-button-border);
+    border-width: 3px;
+    line-height: 10px;
+    border-style: dashed;
+    margin: 1px;
+}
+
+
+/* --- Table styling --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    filter: drop-shadow(1px 1px 5px var(--text-glow-color));
+
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: left;
+}
+
+
+th {
+    background-color: var(--header-color);
+    color: var(--secondary-text-color);
+    letter-spacing: 2px;
+    font-family: "Silkscreen", sans-serif;
+}
+
+td {
+    background-color: var(--row-color-one);
+}
+
+tr:nth-child(even) td {
+    background-color:var(--row-color-two);
+}
+
+/* Optional: Styling for the table container */
+#table-container {
+    margin-top: 20px;
+}
+
+#searchContainer {
+    padding-top: 20px;
+    position: relative;
+    z-index: 2;
+    justify-content: space-between;
+    align-content: center;
+}
+
+#myInput {
+    background-position: 10px 12px;
+    /* Position the search icon */
+    background-color: var(--search-background-color);
+    width: 100%;
+    /* Full-width */
+    font-size: 16px;
+    /* Increase font-size */
+    padding: 12px 0px 12px 0px;
+    /* Add some padding */
+    border: 1px solid #e22424;
+    /* Add a grey border */
+    margin-bottom: 12px;
+    /* Add some space below the input */
+    border-radius: 12px;
+    font-family: "Silkscreen", sans-serif;
+    color: var(--secondary-text-color);
+    border-color: var(--search-border-color);
+    border-width: 4px;
+
+}
+
+#searchElements {
+    display: flex;
+}
+
+input::placeholder {
+    color: #ffe4c6;
+}
+
+
+#creatorsContainer {
+    border-radius: 10px;
+    padding: 20px;
+}

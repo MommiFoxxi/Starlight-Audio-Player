@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- External JavaScript sources. -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://unpkg.com/wavesurfer.js@7/dist/wavesurfer.min.js"></script>
+
+    <!-- links to fonts and stylesheets; feel free to add more links to customize your site-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link href='https://fonts.googleapis.com/css?family=Lexend ' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Emilys Candy' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+
+    <!-- Title of the webpage. -->
+    <title>Starlight Audio Player</title>
+
+    <!-- Link to favicon image. -->
+    <link rel="icon" type="image/x-icon" href="https://pixelsafari.neocities.org/favicon/nature/star/star129.gif">
+</head>
+
+<header>
+    <!-- Header is empty -->
+</header>
+
+<body>
+    <h1>Starlight Audio Player</h1>
+
+    <div class="container">
+
+        <!-- Container for buttons to external links -->
+        <div id="socials" class="buttons-container">
+            <a href=""><button class="secondaryButton">Social</button></a>
+            <a href=""><button class="secondaryButton">Social</button></a>
+            <a href=""><button class="secondaryButton">Social</button></a>
+            <a href=""><button class="secondaryButton">Social</button></a>
+            <a href=""><button class="secondaryButton">Social</button></a>
+            <a href=""><button class="secondaryButton">Social</button></a>
+        </div>
+        <p class="secondaryText">Welcome to the Starlight Audio Player! This an open-source framework for hosting your own audios. Please
+            visit my GitHub page <a href="https://github.com/MommiFoxxi/Starlight-Audio-Player" class="secondaryText">here</a> the code, documentation, and user guides. AI use within
+            this framework is forbidden. While this code is open-source, I reserve the right to ask anyone not to use it.
+        </p>
+
+        <br>
+
+        <!-- Player elements -->
+        <div id="wholePlayer">
+            <div id="npcdContainer">
+                <div id="cdCase">
+                    <img class="disk" id="cdSpinner" src="img/starrynight.png" alt="disk">
+                </div>
+                <div id="npplContainer">
+                    <div id="npContainer">
+
+                        <div>
+                            <h3 id="npTitle"></h3>
+                            <h4 id="npSummary"></h4>
+                        </div>
+                        <div>
+                            <h3 id="nowPlaying"></h3>
+                        </div>
+                    </div>
+                    <div id="playerContainer">
+
+                        <div id="audioplayer"></div>
+                        <div id="timecode-container">
+                            <div class="timecode">
+                                <h4 id="current-time"></h4>
+                            </div>
+
+                            <div class="timecode">
+                                <h4 id="remaining-time"></h4>
+                            </div>
+
+                        </div>
+
+                        <div id="function-container">
+                            <div> <button id="mainPlay">Play/Pause</button></div>
+                            <div> <button id="loopButton" onclick="toggleLoop()">Loop Audio: NO</button></div>
+
+                            <div class="volume-group">
+                                <h3>Volume 🔊</h3><input id="volumeSlider" class="volume-slider" type="range" name="volume-slider" min="0" max="100" value="100" aria-label="Volume" />
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Container for buttons to external links -->
+        <div id="searchContainer">
+            <p class="secondaryText">Search for audios below, and click the "Load Audio" button to load the audio into the player.
+                Click on the buttons within the "Tags" column to add that tag to the current search (click on it again to remove
+                it from the search list).
+            </p>
+            <div> <input type="text" id="myInput" onkeyup="searchTable()" placeholder=" 🔎 Search for terms and tags here:">
+            </div>
+            <div>
+                <h3 id="selectedTagContainer"></h3>
+            </div>
+
+            <div id="table-container">
+                <table id="audio-table"></table>
+            </div>
+
+        </div>
+        <div id="creatorsContainer">
+            <h2>Fellow Creators</h2>
+            <p class="secondaryText">Shoutout your friends and faves!</p>
+            <div class="buttons-container">
+                <a href=""><button class="secondaryButton">Creator</button></a>
+                <a href=""><button class="secondaryButton">Creator</button></a>
+                <a href=""><button class="secondaryButton">Creator</button></a>
+                <a href=""><button class="secondaryButton">Creator</button></a>
+                <a href=""><button class="secondaryButton">Creator</button></a>
+                <a href=""><button class="secondaryButton">Creator</button></a>
+                <a href=""><button class="secondaryButton">Creator</button></a>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script type="text/javascript" src="script.js"></script>
+
+</body>
+<footer>
+
+    <!-- Please do not remove the attrribution from your website. -->
+    <p>Open source player created by MommiFoxxi, read more <a href="https://github.com/MommiFoxxi/Starlight-Audio-Player" class="secondaryText">here</a></p>
+</footer>
+
+</html>
