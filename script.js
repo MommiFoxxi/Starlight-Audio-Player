@@ -166,7 +166,7 @@ function toggleLoop() {
         document.getElementById("loopButton").innerHTML = "Loop Audio: NO"
     }
 }
-// function to create the content of the webiste (mostly)
+// function to create the content of the website (mostly)
 function siteCreation(dataPath) {
     // Create table of audios and fetch data
     const listEl = document.querySelector("#audio-table"); // Table object
@@ -175,12 +175,13 @@ function siteCreation(dataPath) {
         .then(res => res.json())
         .then(data => {
             audiosData = data
+
+
             stringURL = myURL.toString()
             if (stringURL.includes("?")) {
                 audioUrlSearch = stringURL.split("?")[1]
 
             } else {
-
             }
 
             // Generate table headers
@@ -242,6 +243,8 @@ function siteCreation(dataPath) {
 
                     }
 
+                    audioURLMatch = post["title"].replace(/\s{2,}/g, " ").replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase().split(' ').join('').substring(0, 30)
+
                     if (audioUrlSearch === "") {
                         if (pi === data.length && joever === false) {
 
@@ -259,7 +262,8 @@ function siteCreation(dataPath) {
                         } else {
                             joever = false;
                         }
-                    } else if (audioUrlSearch === post["title"].replace(/\s{2,}/g, " ").split(' ').join('') && audioUrlSearch != "") {
+    
+                    } else if (audioUrlSearch === audioURLMatch && audioUrlSearch != "") {
 
                         currentPlay = `${post["filename"]}`
                         currentTags = `${post["tags"]}`
@@ -289,6 +293,16 @@ function siteCreation(dataPath) {
                     currentSummary = `${post["summary"]}`
                     wavesurfer.autoplay = true;
 
+                    if (myURL.toString().includes("?")) {
+                        baseURL = myURL.toString().split("?")[0]
+
+                    } else {
+                        baseURL = myURL.toString()
+                    }
+
+                    audioURL = post["title"].replace(/\s{2,}/g, " ").replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase().split(' ').join('').substring(0, 30)
+                    console.log(myURL + "?" + audioURL)
+
                     currentTagsButtons = tagButtonCreation(currentTags)
 
                     document.querySelector('#npTitle').innerHTML = `${currentTitle}`
@@ -296,6 +310,7 @@ function siteCreation(dataPath) {
                     document.querySelector('#npSummary').innerHTML = `${currentSummary}`
 
                     wavesurfer.load(currentPlay)
+                    window.scrollTo(0, 0)
                 })
 
                 row.appendChild(playButton);
