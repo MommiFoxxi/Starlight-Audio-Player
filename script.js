@@ -181,8 +181,7 @@ function siteCreation(dataPath) {
             if (stringURL.includes("?")) {
                 audioUrlSearch = stringURL.split("?")[1]
 
-            } else {
-            }
+            } else {}
 
             // Generate table headers
             const headerRow = document.createElement('tr');
@@ -243,7 +242,7 @@ function siteCreation(dataPath) {
 
                     }
 
-                    audioURLMatch = post["title"].replace(/\s{2,}/g, " ").replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase().split(' ').join('').substring(0, 30)
+                    audioURLMatch = post["title"].replace(/\s{2,}/g, " ").replace(/[.,\/#!$%\^&\*;:{}“=\-_`'“’"“?~()]/g, "").toLowerCase().split(' ').join('').substring(0, 30)
 
                     if (audioUrlSearch === "") {
                         if (pi === data.length && joever === false) {
@@ -262,7 +261,7 @@ function siteCreation(dataPath) {
                         } else {
                             joever = false;
                         }
-    
+
                     } else if (audioUrlSearch === audioURLMatch && audioUrlSearch != "") {
 
                         currentPlay = `${post["filename"]}`
@@ -274,44 +273,29 @@ function siteCreation(dataPath) {
                         fileToLoad = currentPlay
 
 
-                        document.querySelector('#npTitle').innerHTML = `${currentTitle}`
-                        document.querySelector('#nowPlaying').innerHTML = `${currentTagsButtons}`
-                        document.querySelector('#npSummary').innerHTML = `${currentSummary}`
+                        document.querySelector('#npTitle').innerHTML = `${currentTitle}`;
+                        document.querySelector('#nowPlaying').innerHTML = `${currentTagsButtons}`;
+                        document.querySelector('#npSummary').innerHTML = `${currentSummary}`;
 
                         joever = true;
                     }
                 }
+                audioURL = post["title"].replace(/\s{2,}/g, " ").replace(/[.,\/#!$%\^&\*;:{}“=\-_`'“’"“?~()]/g, "").toLowerCase().split(' ').join('').substring(0, 30)
 
-                // Create "play" button for each row
+                if (myURL.toString().includes("?")) {
+                    baseURL = myURL.toString().split("?")[0]
+
+                } else {
+                    baseURL = myURL.toString()
+                }
+
+                audioURLComplete = baseURL + "?" + audioURL
+
+                // Create "Load Audio" button for each row
                 const playButton = document.createElement('td')
 
-                playButton.insertAdjacentHTML("beforeend", `<button id="playbutton" value="${post["filename"]}">Load Audio</button>`)
-                playButton.addEventListener('click', () => {
-                    currentTitle = post["title"]
-                    currentTags = post["tags"]
-                    currentPlay = post["filename"]
-                    currentSummary = `${post["summary"]}`
-                    wavesurfer.autoplay = true;
+                playButton.insertAdjacentHTML("beforeend", `<button onclick="location.href='${audioURLComplete}'"id="playbutton" value="${post["filename"]}">Load Audio</button>`)
 
-                    if (myURL.toString().includes("?")) {
-                        baseURL = myURL.toString().split("?")[0]
-
-                    } else {
-                        baseURL = myURL.toString()
-                    }
-
-                    audioURL = post["title"].replace(/\s{2,}/g, " ").replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").toLowerCase().split(' ').join('').substring(0, 30)
-                    console.log(myURL + "?" + audioURL)
-
-                    currentTagsButtons = tagButtonCreation(currentTags)
-
-                    document.querySelector('#npTitle').innerHTML = `${currentTitle}`
-                    document.querySelector('#nowPlaying').innerHTML = `${currentTagsButtons}`
-                    document.querySelector('#npSummary').innerHTML = `${currentSummary}`
-
-                    wavesurfer.load(currentPlay)
-                    window.scrollTo(0, 0)
-                })
 
                 row.appendChild(playButton);
                 listEl.appendChild(row); // add whole row to table
@@ -336,15 +320,15 @@ function siteCreation(dataPath) {
                         buttClass = ""
                         if (tsButt.includes("4")) {
                             buttClass = "Audience"
-                                } else if (tsButt.includes("SFW")) {
-                                    buttClass = "Rating"
-                                } else if (itemInList(hardTags, tsButt)) {
-                                    buttClass = "Extreme"
-                                } else if (itemInList(collabWords, tsButt)) {
-                                    buttClass = "Collab"
-                                } else {
-                                    buttClass = "General"
-                                }
+                        } else if (tsButt.includes("SFW")) {
+                            buttClass = "Rating"
+                        } else if (itemInList(hardTags, tsButt)) {
+                            buttClass = "Extreme"
+                        } else if (itemInList(collabWords, tsButt)) {
+                            buttClass = "Collab"
+                        } else {
+                            buttClass = "General"
+                        }
 
                         tagButtonText = `<button onclick="resetTagList('${tsButt}')" id="selectedTags" class="${buttClass}" value="${tsButt}">${tsButt}</button>`
                         buttString = buttString + tagButtonText
@@ -359,8 +343,8 @@ function siteCreation(dataPath) {
                 document.querySelector('#npSummary').innerHTML = `${currentSummary}`
             }
             wavesurfer.load(fileToLoad)
-
         });
+
 };
 
 function formatTime(seconds) {
@@ -376,22 +360,23 @@ function resetTagList(word) {
     buttString = ""
     buttonTagList.forEach(tsButt => {
         buttClass = ""
-            if (tsButt.includes("4")) {
-                buttClass = "Audience"
-                    } else if (tsButt.includes("SFW")) {
-                        buttClass = "Rating"
-                    } else if (itemInList(hardTags, tsButt)) {
-                        buttClass = "Extreme"
-                    } else if (itemInList(collabWords, tsButt)) {
-                        buttClass = "Collab"
-                    } else {
-                        buttClass = "General"
-                    }
+        if (tsButt.includes("4")) {
+            buttClass = "Audience"
+        } else if (tsButt.includes("SFW")) {
+            buttClass = "Rating"
+        } else if (itemInList(hardTags, tsButt)) {
+            buttClass = "Extreme"
+        } else if (itemInList(collabWords, tsButt)) {
+            buttClass = "Collab"
+        } else {
+            buttClass = "General"
+        }
 
         tagButtonText = `<button onclick="resetTagList('${tsButt}')" id="selectedTags" class= "${buttClass}"value="${tsButt}">${tsButt}</button>`
         buttString = buttString + tagButtonText
     })
     document.querySelector('#selectedTagContainer').innerHTML = buttString
+
     searchTable()
 }
 
@@ -401,7 +386,6 @@ function resetTagList(word) {
 function tagButtonCreation(value) {
     tagButt = ""
     matches = value.match(/(?<=\[).+?(?=\])/g); // Get text within bracket
-
     // Iterate over tags to create each button
     matches.forEach(tag => {
 
