@@ -1,14 +1,14 @@
 /* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
    HTML content. To learn how to do something, just try searching Google for questions like
    "how to change link color." */
-:root{
+:root {
     /* NOTE:  the colors labeled A-H below can be used to bulk set colors without needing to set the color of each element.
     If you'd like to use the detailed color selection, swap the names ":root" and ".notroot" before the brackets */
-    --COLOR-A: #160170; 
+    --COLOR-A: #160170;
     --COLOR-B: #fff6a1;
     --COLOR-C: #c74900;
     --COLOR-D: #627aff;
-    --COLOR-E: #f39a15; 
+    --COLOR-E: #f39a15;
     --COLOR-F: #c2cbff;
     --COLOR-G: #fff1cb;
     --COLOR-H: #152042d3;
@@ -27,7 +27,7 @@
     --main-text-color: var(--COLOR-A);
     --secondary-text-color: var(--COLOR-B);
     --title-text-color: var(--COLOR-B);
-    --text-glow-color:  var(--COLOR-C);
+    --text-glow-color: var(--COLOR-C);
 
     --main-button-color: var(--COLOR-A);
     --secondary-button-color: var(--COLOR-A);
@@ -39,15 +39,15 @@
 
     --volume-background-color: var(--COLOR-D);
     --volume-border-color: var(--COLOR-A);
-    --volume-cursor-color: var(--COLOR-E); 
+    --volume-cursor-color: var(--COLOR-E);
     --volume-cursor-border-color: var(--COLOR-C);
 
     --main-container-color: var(--COLOR-H);
-    --secondary-container-color:var(--COLOR-B);
+    --secondary-container-color: var(--COLOR-B);
     --footer-container-color: var(--COLOR-H);
     --container-border-color: var(--COLOR-B);
 
-    --player-background-color:var(--COLOR-B);
+    --player-background-color: var(--COLOR-B);
     --player-cursor-color: var(--COLOR-E);
     --player-cursor: '⭐';
     --player-border-color: var(--COLOR-E);
@@ -56,19 +56,19 @@
     --waveform-color: var(--COLOR-D);
     --waveform-after-color: var(--COLOR-C);
 
-    --header-color:   var(--COLOR-A);
-    --row-color-one:  var(--COLOR-F);
+    --header-color: var(--COLOR-A);
+    --row-color-one: var(--COLOR-F);
     --row-color-two: var(--COLOR-G);
-    --table-border-color:  var(--COLOR-E);
+    --table-border-color: var(--COLOR-E);
 
-    --search-background-color:  var(--COLOR-D);
-    --search-border-color:  var(--COLOR-F);
+    --search-background-color: var(--COLOR-D);
+    --search-border-color: var(--COLOR-F);
 }
 
 .notroot {
     /* --- DETAILED COLOR/STYLE SELECTION --- */
 
-     /* Text colors */
+    /* Text colors */
     --main-text-color: #11004e;
     --secondary-text-color: #fff596;
     --title-text-color: #fff596;
@@ -82,12 +82,12 @@
     --main-button-color: #11004e;
     --secondary-button-color: #11004e;
     --button-text-family: 'Lexend', ;
-    --main-button-border:  #f39a15;
+    --main-button-border: #f39a15;
     --secondary-button-border: #fff596;
 
     /* Tag button settings */
     --tag-button-color: #f39a15;
-    --tag-button-border:#cf5108;
+    --tag-button-border: #cf5108;
 
     /* Volume slider settings */
     --volume-background-color: #5c74ff;
@@ -120,13 +120,13 @@
     --waveform-after-color: #cf5108;
 
     /* Table settings */
-    --header-color:  #11004e;
+    --header-color: #11004e;
     --row-color-one: #c2cbff;
     --row-color-two: #fff1cb;
     --table-border-color: #f39a15;
 
     /* Search bar settings */
-    --search-background-color:  #5c74ff;
+    --search-background-color: #5c74ff;
     --search-border-color: #c2cbff;
 }
 
@@ -223,12 +223,14 @@ h3 {
     font-family: 'Lexend';
     font-weight: 800;
 }
+
 h4 {
     font-size: 100%;
     color: var(--main-text-color);
     font-family: 'Lexend';
     font-weight: 500;
 }
+
 /* --- Container stylings --- */
 
 .container {
@@ -299,7 +301,7 @@ h4 {
     margin-right: -100px;
     position: relative;
     z-index: -1;
-    scale: 120%;
+    scale: 150%;
     filter: drop-shadow(1px 1px 5px var(--text-glow-color));
 
 }
@@ -451,28 +453,29 @@ h4 {
 
 #playbutton {
     background-color: var(--secondary-button-color);
-    border: 3px solid var(--secondary-button-border);;
+    border: 3px solid var(--secondary-button-border);
+    ;
     color: var(--secondary-text-color);
     font-style: bold;
     font-family: var(--button-text-family);
     font-size: 1rem;
     border-radius: 50px;
     padding: 10px;
-    filter: drop-shadow(3px 3px 3px var(--main-button-shadow)) 
-
+    filter: drop-shadow(3px 3px 3px var(--main-button-shadow))
 }
 
 #loopButton,
 #mainPlay {
     background-color: var(--main-button-color);
-    border: 3px solid var(--main-button-border);;
+    border: 3px solid var(--main-button-border);
+    ;
     color: var(--secondary-text-color);
     font-style: bold;
     font-family: var(--button-text-family);
     font-size: 1rem;
     border-radius: 50px;
     padding: 10px;
-    filter: drop-shadow(3px 3px 3px var(--main-button-shadow)) 
+    filter: drop-shadow(3px 3px 3px var(--main-button-shadow))
 }
 
 #playDiv {
@@ -522,12 +525,12 @@ h4 {
     color: var(--main-text-color);
     font-style: bold;
     font-family: 'Lexend';
-    font-size: .8rem;
+    font-size: .9rem;
     border-radius: 10px;
     padding: 7px;
     border-color: var(--tag-button-border);
     border-width: 3px;
-    line-height: 10px;
+    line-height: auto;
     border-style: dashed;
     margin: 1px;
 }
@@ -537,12 +540,12 @@ h4 {
     color: var(--main-text-color);
     font-style: bold;
     font-family: 'Lexend';
-    font-size: .8rem;
+    font-size: .9rem;
     border-radius: 10px;
     padding: 7px;
     border-color: var(--tag-button-border);
     border-width: 3px;
-    line-height: 10px;
+    line-height: auto;
     border-style: dashed;
     margin: 1px;
 }
@@ -579,7 +582,7 @@ td {
 }
 
 tr:nth-child(even) td {
-    background-color:var(--row-color-two);
+    background-color: var(--row-color-two);
 }
 
 /* Optional: Styling for the table container */
